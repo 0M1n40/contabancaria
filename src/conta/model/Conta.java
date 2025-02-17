@@ -1,7 +1,7 @@
 package conta.model;
 
 //passo a passo:
-public class Conta {
+public abstract class Conta {
 
 	// criado o pacote do modelo
 	// depois criou a classe conta
@@ -10,17 +10,17 @@ public class Conta {
 	// atributos (caracteristicas)
 	private String titular;
 	private int agencia;
-	private int numero;
+	private int numeroConta;
 	private int tipo;
 	private float saldo;
 
 // construtos : ele cria um obrigatoriedade para o usuário preencher todos os dados dos atributos  da classe modelo.	
 
-	public Conta(String titular, int agencia, int numero, int tipo, float saldo) {
+	public Conta(String titular, int agencia, int numero, int tipo, float saldo, int numeroConta) {
 		// super();
 		this.titular = titular;
 		this.agencia = agencia;
-		this.numero = numero;
+		this.numeroConta = numeroConta;
 		this.tipo = tipo;
 		this.saldo = saldo;
 	}
@@ -46,11 +46,11 @@ public class Conta {
 	}
 
 	public int getNumero() {
-		return numero;
+		return numeroConta;
 	}
 
 	public void setNumero(int numero) {
-		this.numero = numero;
+		this.numeroConta = numero;
 	}
 
 	public int getTipo() {
@@ -72,6 +72,8 @@ public class Conta {
 	// metodos(acoes) especificos
 
 	// sacar = verifica se o saldo é menor do que o valor de saque
+	
+	
 	public boolean sacar(float valor) {
 		if (this.getSaldo() < valor) {
 			System.out.println("Saldo insuficiente");
@@ -86,7 +88,7 @@ public class Conta {
 		this.setSaldo(this.getSaldo() + valor);
 	}
 
-	// visuslizar
+	// vizualizar
 
 	public void visualizar() {
 
@@ -94,11 +96,11 @@ public class Conta {
 
 		switch (this.tipo) {
 		case 1 : 
-			tipo = "Conta Corrente";
+			tipo = "Conta Poupança";
 			break;
 			
 		case 2 : 
-			tipo = "Conta Poupança";
+			tipo = "Conta Corrente";
 			break;
 			
 		}
@@ -106,10 +108,13 @@ public class Conta {
 		System.out.println("\n\n***********************************************************");
 		System.out.println("Dados da Conta:");
 		System.out.println("***********************************************************");
-		System.out.println("Numero da Conta: " + this.numero);
+		System.out.println("Numero da Conta: " + this.numeroConta);
 		System.out.println("Agência: " + this.agencia);
 		System.out.println("Tipo da Conta: " + tipo);
 		System.out.println("Titular: " + this.titular);
 		System.out.println("Saldo: " + this.saldo);
+		
+	
+		
 	}
 }
