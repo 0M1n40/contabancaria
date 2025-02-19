@@ -96,11 +96,11 @@ public abstract class Conta {
 
 		switch (this.tipo) {
 		case 1 : 
-			tipo = "Conta Poupança";
+			tipo = "Conta Corrente";
 			break;
 			
 		case 2 : 
-			tipo = "Conta Corrente";
+			tipo = "Conta Poupaça";
 			break;
 			
 		}
@@ -108,10 +108,10 @@ public abstract class Conta {
 		System.out.println("\n\n***********************************************************");
 		System.out.println("Dados da Conta:");
 		System.out.println("***********************************************************");
+		System.out.println("Titular: " + this.titular);
 		System.out.println("Numero da Conta: " + this.numeroConta);
 		System.out.println("Agência: " + this.agencia);
 		System.out.println("Tipo da Conta: " + tipo);
-		System.out.println("Titular: " + this.titular);
 		System.out.println("Saldo: " + this.saldo);
 		
 	
