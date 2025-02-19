@@ -48,8 +48,10 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 
 		String nomeTitular;
-		int opcao, numConta, numAgencia, tipoConta, aniversario;
-		float saldo, limite;
+		//PORQUE A CONTA ESTÁ INICIANDO NO 2??? 
+		int numConta = 0;
+		int opcao, numAgencia, tipoConta, aniversario, numDestino;
+		float saldo, limite, valor;
 
 		while (true) {
 			System.out.println(Cores.ANSI_BLACK_BACKGROUND_BRIGHT + Cores.TEXT_WHITE_BOLD
@@ -230,7 +232,7 @@ public class Menu {
 
 					}
 
-				}else {
+				} else {
 					System.out.println("A conta não foi encontrada!");
 				}
 
@@ -239,23 +241,56 @@ public class Menu {
 
 			case 5:
 				System.out.println(Cores.TEXT_BLACK + "Apagar a Conta\n\n");
-				
+
 				System.out.println("Digite o numero da conta: ");
 				numConta = leia.nextInt();
 				contas.deletar(numConta);
-				
+
 				keyPress();
 				break;
 			case 6:
 				System.out.println(Cores.TEXT_BLACK + "Saque\n\n");
+				System.out.println("Digite o numero da conta: ");
+				valor = leia.nextFloat();
+
+				do {
+					System.out.println("Digite o valor do saque: ");
+					valor = leia.nextFloat();
+				} while (valor <= 0);
+
+				contas.sacar(numConta, valor);
+
 				keyPress();
 				break;
 			case 7:
 				System.out.println(Cores.TEXT_BLACK + "Depósito\n\n");
+				System.out.println("Digite o numero da conta: ");
+				numConta = leia.nextInt();
+
+				do {
+					System.out.println("Digite o valor do deposito: ");
+					valor = leia.nextFloat();
+				} while (valor <= 0);
+
+				contas.depositar(numConta, valor);
+
 				keyPress();
 				break;
 			case 8:
 				System.out.println(Cores.TEXT_BLACK + "Transferência entre Contas\n\n");
+
+				System.out.println("Digite o numero da conta de origem: ");
+				numConta = leia.nextInt();
+				System.out.println("Digite o numero da conta de destino: ");
+				numDestino = leia.nextInt();
+
+				do {
+					System.out.println("Digite o valor da transferencia: ");
+					valor = leia.nextFloat();
+				} while (valor <= 0);
+
+				contas.transferir(numConta, numDestino, valor);
+
 				keyPress();
 				break;
 			default:
