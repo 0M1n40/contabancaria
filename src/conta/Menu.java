@@ -48,7 +48,7 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 
 		String nomeTitular;
-		//PORQUE A CONTA ESTÁ INICIANDO NO 2??? 
+		//PORQUE A CONTA ESTÁ INICIANDO NO 2???E PQ ESTÁ CONTANDO DE 2 EM 2 MDS 
 		int numConta = 0;
 		int opcao, numAgencia, tipoConta, aniversario, numDestino;
 		float saldo, limite, valor;
@@ -83,7 +83,8 @@ public class Menu {
 			try {
 				opcao = leia.nextInt();
 			} catch (InputMismatchException e) {
-				System.out.println("\nDigite valores inteiros!");
+				System.out.println("\n\n***********************************************************");
+				System.out.println("\n                Digite valores inteiros!                     ");
 				leia.nextLine();
 				opcao = 0;
 
@@ -99,27 +100,30 @@ public class Menu {
 
 			switch (opcao) {
 			case 1:
-				System.out.println(Cores.TEXT_BLACK + "Criar Conta\n\n");
-
-				System.out.println("Digite o nome do Titular: ");
+				System.out.println(Cores.TEXT_BLACK +"\n                  CRIAR CONTA                        \n");
+				System.out.println("\n\n****************************************************");
+				System.out.println("   Digite o nome do Titular:                        ");
+	//	System.out.println("   Digite o nome do Titular:                               ");
 				leia.skip("\\R?");
 				nomeTitular = leia.nextLine();
-				System.out.println("Insira o numero da agência: ");
+				System.out.println("   Insira o numero da agência:                      ");
 				numAgencia = leia.nextInt();
 
 				do {
-					System.out.println("Digite o tipo da conta (1- Conta Corrente ou 2- Conta Poupança) :");
+					System.out.println("   Digite o tipo da conta                           "
+							+ "\n1- Conta Corrente                                   "
+							+ "\n2- Conta Poupança :da agência:                      ");
 					tipoConta = leia.nextInt();
 				} while (tipoConta < 1 && tipoConta > 2);
 
-				System.out.println("Digite o saldo da conta - R$ : ");
+				System.out.println("   Digite o saldo da conta - R$ :                   ");
 				saldo = leia.nextFloat();
 
 				switch (tipoConta) {
 //switch expression
 				case 1 -> {
 
-					System.out.println("Digite o limite de credito em R$: ");
+					System.out.println("   Digite o limite de credito em R$:                ");
 					limite = leia.nextFloat();
 					// contas.cadastrar(new ContaCorrente(contas.gerarNumero(), numAgencia,
 					// tipoConta, nomeTitular, saldo, limite));
@@ -129,7 +133,7 @@ public class Menu {
 
 				}
 				case 2 -> {
-					System.out.println("Digite o dia do seu aniversário da conta: ");
+					System.out.println("   Digite o dia do seu aniversário da conta: ");
 					aniversario = leia.nextInt();
 					// contas.cadastrar(new ContaPoupanca (contas.gerarNumero(), numAgencia,
 					// tipoConta, nomeTitular,saldo,aniversario));

@@ -35,7 +35,8 @@ public class ContaPoupanca extends Conta {
 	@Override
 	public void visualizar() {
 		super.visualizar();
-		System.out.println("Aniversário da conta: " + this.aniversario);
+		System.out.println("***************************************************************");
+		System.out.println("Aniversário da Conta:                                          " + this.aniversario);
 	}
 }
 //	public ContaPoupanca(String titular, int agencia, int numero, int tipo, float saldo,

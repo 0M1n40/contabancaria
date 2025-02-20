@@ -25,7 +25,7 @@ public class ContaController implements COntaRepository {
 		// TODO Auto-generated method stub
 
 		listaContas.add(conta);
-		System.out.println("\n Conta número: " + conta.getNumero() + " foi criado com sucesso!");
+		System.out.println("\n       Conta número: " + conta.getNumero() + " foi criado com sucesso!  ");
 
 	}
 
@@ -97,10 +97,11 @@ public class ContaController implements COntaRepository {
 		if (contaOrigin != null && contaDestino != null) {
 			if (contaOrigin.sacar(valor)== true) {}
 			contaDestino.depositar(valor);
-			System.out.println("\nTransferencia foi efetuada com sucesso!");
+			System.out.println("\n       Transferencia foi efetuada com sucesso!               ");
 			
 		}else 
-			System.out.println("\n A conta de origem e/ou destino não foi encontrada");
+			System.out.println("\n\n***********************************************************");
+			System.out.println("\n    A conta de origem e/ou destino não foi encontrada        ");
 	}
 
 	public int gerarNumero() {
